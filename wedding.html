@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>החתונה של חיה ומוישי</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Rubik+Moonrocks&display=swap');
+
+    body {
+      font-family: 'Rubik Moonrocks', cursive;
+      background: linear-gradient(to bottom, #fff0f5, #ffe4e1);
+      text-align: center;
+      color: #8b0000;
+      padding: 20px;
+      animation: sparkle 10s infinite;
+    }
+
+    h1 {
+      font-size: 5rem;
+      margin-top: 20px;
+    }
+
+    .emoji {
+      font-size: 3rem;
+    }
+
+    .countdown {
+      font-size: 4rem;
+      margin-top: 30px;
+      color: #d2691e;
+      background: #fff8dc;
+      border-radius: 20px;
+      padding: 30px;
+      display: inline-block;
+      box-shadow: 0 0 25px gold;
+    }
+
+    .decorations {
+      margin-top: 30px;
+      font-size: 3rem;
+    }
+
+    @keyframes sparkle {
+      0% { background-position: 0 0; }
+      100% { background-position: 100% 100%; }
+    }
+
+    .balloons {
+      font-size: 4rem;
+      animation: float 4s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="emoji">💍🎉👰🤵💐</div>
+  <h1>ספירת הגומר לחתונה של חיה ומוישי</h1>
+  <div class="countdown" id="countdown">טוען...</div>
+  <div class="decorations">
+    🎈🎊✨🌸💖🥂🎀🎵
+  </div>
+  <div class="balloons">
+    🎈🎈🎈
+  </div>
+
+  <script>
+    const countdownElement = document.getElementById('countdown');
+    const weddingDate = new Date('2025-06-25T00:00:00');
+
+    function updateCountdown() {
+      const now = new Date();
+      const diff = weddingDate - now;
+
+      if (diff <= 0) {
+        countdownElement.innerHTML = 'היום זה היום!! מזל טוב לחיה ומוישי 🎉💑';
+        return;
+      }
+
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+      const minutes = Math.floor((diff / (1000 * 60)) % 60);
+      const seconds = Math.floor((diff / 1000) % 60);
+
+      countdownElement.innerHTML = `
+        נשארו רק ${days} ימים לחתונה!!<br>
+        (${hours} שעות, ${minutes} דקות ו-${seconds} שניות)
+      `;
+    }
+
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
+  </script>
+
+</body>
+</html>
